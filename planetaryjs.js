@@ -1,8 +1,8 @@
-/*! Planetary.js v1.1.2
+/*! Planetary.js v1.1.3
  *  Copyright (c) 2013 Michelle Tilley
  *
  *  Released under the MIT license
- *  Date: 2015-11-22T10:07:37.594Z
+ *  Date: 2018-10-30T18:49:58.667Z
  */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -187,9 +187,6 @@
   planetaryjs.plugins.oceans = function(config) {
     return function(planet) {
       planet.onDraw(function() {
-        if( !planet.requiresRedraw ) {
-          return;
-        }
         planet.withSavedContext(function(context) {
           context.beginPath();
           planet.path.context(context)({type: 'Sphere'});
