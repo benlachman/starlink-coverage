@@ -82,7 +82,7 @@
       <span class="circle" style="display: var(--explanation)" onclick="hide_help()">✖</span>
     </div>
     <input id="angle" type="range" min="0" max="89.9">
-    <div id="angle_text">25°</div>
+    <div id="angle_text">40°</div>
     <div style="display: var(--explanation); max-width: 75%; background-color: #00000066; padding: 1em; border-radius: 1em;">
       <div>Degrees From Horizon is the amount you have to tilt your head to look at the satellite when standing in a flat field.</div>
       <br />
@@ -121,7 +121,7 @@
   let angle = document.getElementById("angle");
   let angle_text = document.getElementById("angle_text");
   angle.oninput = _ => angle_text.textContent = angle.value + "°";
-  angle.value = 25;
+  angle.value = 40;
 
   let autorotate_elem = document.getElementById("autorotate");
   autorotate_elem.checked = true;
