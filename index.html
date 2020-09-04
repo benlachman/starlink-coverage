@@ -455,7 +455,7 @@
   fetch("starlink-data.txt")
     .then(r => r.text(), _ => console.log("starlink data failed"))
     .then(text => {
-      rows = text.split("\r\n");
+      rows = text.split(/\r?\n/);
       for (let i = 0; i + 2 < rows.length; i += 3) {
         satellites.push(satellite.twoline2satrec(rows[i + 1], rows[i + 2]));
       }
