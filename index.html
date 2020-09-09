@@ -82,16 +82,16 @@
       <span class="circle" style="display: var(--explanation)" onclick="hide_help()">✖</span>
     </div>
     <input id="angle" type="range" min="0" max="89.9">
-    <div id="angle_text">40°</div>
+    <div id="angle_text">25°</div>
     <div style="display: var(--explanation); max-width: 75%; background-color: #00000066; padding: 1em; border-radius: 1em;">
       <div>Degrees From Horizon is the amount you have to tilt your head to look at the satellite when standing in a flat field.</div>
       <br />
-      <div>We believe the initial constellation will have connectivity if the satellite is above 25°, and that this requirement will later be increased to 40°.</div>
+      <div>We believe the initial constellation will have connectivity if the satellite is above 25°, and that this requirement will later be eased to 40° to increase performance. Note: This number is how much of the whole sky (in all directions) will be required to be visible overhead to maintain constant connection to the constellation.</div>
     </div>
   </div>
   <div style="bottom: 10px;position: fixed;width: 100%;color: #ffffff55;z-index: 1;">
     MIT Licensed, Originally Created By <a href="http://droid.cafe/starlink/">Greg Morenz</a> (updated by <a href="http://twitter.com/blach/">Ben Lachman</a>)</div>
-  
+
   <canvas id='globe' style="position:fixed;top:0;display:block;"></canvas>
 </body>
 <script>
@@ -124,7 +124,7 @@
   let angle = document.getElementById("angle");
   let angle_text = document.getElementById("angle_text");
   angle.oninput = _ => angle_text.textContent = angle.value + "°";
-  angle.value = 40;
+  angle.value = 25;
 
   let autorotate_elem = document.getElementById("autorotate");
   autorotate_elem.checked = true;

@@ -1,15 +1,31 @@
 import re
+import sys
+import os
 
 
-active_sats = open("active.txt").read()
+def filter(file):
+    print("Filtering file \"" + file + "\"")
 
-regex = r"^STARLINK-\d+.*\n1.*\n2.*$"
+    with open(file, 'r') as active_file:
+        active_sats = active_file.read()
 
-starlinks = re.findall(regex, active_sats, re.MULTILINE)
+        regex = r"^STARLINK-\d+.*\n1.*\n2.*$"
 
-print(len(starlinks))
+        starlinks = re.findall(regex, active_sats, re.MULTILINE)
 
-out = "\n".join(starlinks)
+        print(str(len(starlinks)) + " Starlink satellite TLEs found.")
 
-with open('starlink-data.txt', 'w') as f:
-  f.write(out)
+        out = "\n".join(starlinks)
+
+        with open('starlink-data.txt', 'w') as f:
+          f.write(out)
+
+if __name__ == "__main__":
+    try:
+        file = sys.argv[1]
+    except IndexError:
+        print "Usage: " + os.path.basename(__file__) + " <file>"
+        sys.exit(1)
+
+    # start the program
+    filter(file)
